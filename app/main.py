@@ -1,7 +1,13 @@
 from fastapi import FastAPI, HTTPException
 from pydantic import BaseModel
 from app.processor import process_transcript_to_slides
+import nltk
 
+# Download the specific resource needed
+nltk.download('punkt_tab')
+
+# If you need general tokenization, you might also need 'punkt'
+nltk.download('punkt')
 app = FastAPI()
 
 class TranscriptInput(BaseModel):
